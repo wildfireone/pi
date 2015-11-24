@@ -13,20 +13,20 @@ while True:
     http_status = "HTTP/1.1 200 OK \n"
     http_type = "Content-Type: text/html\n"
     
-    table_data = [
-        ['Last name',   'First name',   'Age'],
-        ['Smith',       'John',         30],
-        ['Carpenter',   'Jack',         47],
-        ['Johnson',     'Paul',         62],
-    ]
+    HTML_COLORS = ['Black', 'Green', 'Silver', 'Lime', 'Gray', 'Olive', 'White', 'Maroon', 'Navy', 'Red', 'Blue', 'Purple', 'Teal', 'Fuchsia', 'Aqua']
+    colortable = HTML.Table(header_row=['Name', 'Color'])
+    for colorname in HTML_COLORS:
+    	colored_cell = HTML.TableCell(' ', bgcolor=colorname)
+    	colortable.rows.append([colorname, colored_cell])
 
     http_body = """
 	<!doctype html>
 	<html>
-	<body>
-	""" + HTML.table(table_data, header_row=['Last name',   'First name',   'Age']) + """
+	<body> 
+	""" + colourtable + """
 	</body>
 	</html>"""
+
 
     client_connection.send(http_status)
     client_connection.send(http_type)
