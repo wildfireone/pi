@@ -24,7 +24,7 @@ while True:
 	<!doctype html>
 	<html>
 	<body>
-	""" + HTML.table(table_data) + """
+	""" + HTML.table(table_data, header_row=['Last name',   'First name',   'Age']) + """
 	</body>
 	</html>"""
 
