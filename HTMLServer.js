@@ -13,17 +13,31 @@ while True:
     http_status = "HTTP/1.1 200 OK \n"
     http_type = "Content-Type: text/html\n"
     
-    HTML_COLORS = ['Black', 'Green', 'Silver', 'Lime', 'Gray', 'Olive', 'White', 'Maroon', 'Navy', 'Red', 'Blue', 'Purple', 'Teal', 'Fuchsia', 'Aqua']
-    colortable = HTML.Table(header_row=['Name', 'Color'])
-    for colorname in HTML_COLORS:
-    	colored_cell = HTML.TableCell(' ', bgcolor=colorname)
-    	colortable.rows.append([colorname, colored_cell])
+    temp_readings = [20,21,22,25,28,12,31,76,67,40,12,21,23,34,1,22,23,26]
+    temptable = HTML.Table(header_row=['Temp', 'Result'])
+    
+    for temp in sorted(temp_readings):
+    	if temp > 70:
+		color = 'Red'
+		result = 'fail'
+    	elif temp > 40:
+		color = 'Yellow'
+		result = 'warning'
+    	else:
+		color = 'Green'
+		result = 'ok'
+		
+	colored_result = HTML.TableCell(result, bgcolor=color)
+    	# append the row with two cells:
+    	temptable.rows.append([temp, colored_result])
+
+
 
     http_body = """
 	<!doctype html>
 	<html>
 	<body> 
-	""" + str(colortable) + """
+	""" + str(temptable) + """
 	</body>
 	</html>"""
 
