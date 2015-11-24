@@ -30,4 +30,7 @@ while True:
 
     client_connection.send(http_status)
     client_connection.send(http_type)
+    client_connection.send(http_body)
+    client_connection.close()
+
 
