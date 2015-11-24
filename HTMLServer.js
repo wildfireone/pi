@@ -28,5 +28,6 @@ while True:
 	</body>
 	</html>"""
 
-    client_connection.sendall(http_response)
-    client_connection.close()
+    client_connection.send(http_status)
+    client_connection.send(http_type)
+
