@@ -23,7 +23,7 @@ while True:
 	<!doctype html>
 	<html>
 	<body> 
-	""" + colourtable + """
+	""" + colortable + """
 	</body>
 	</html>"""
 
